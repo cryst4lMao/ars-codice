@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则</title>
+    <!--search(); substring(); charArt(); split();-->
+</head>
+<body>
+<!--<script>-->
+    <!--var str = '12,sda 324fsd fsd 23 09ff';-->
+    <!--var arr = [];-->
+    <!--var tmp = '';-->
+    <!--for(var i=0; i<str.length; i++){-->
+        <!--if(str.charAt(i) >= '0' && str.charAt(i) <= '9'){-->
+            <!--tmp += str.charAt(i)-->
+        <!--}else{-->
+            <!--if(tmp){-->
+                <!--arr.push(tmp);-->
+                <!--tmp='';-->
+            <!--}-->
+        <!--}-->
+    <!--}-->
+    <!--if(tmp){-->
+        <!--arr.push(tmp);-->
+        <!--tmp='';-->
+    <!--}-->
+    <!--alert(arr);-->
+<!--</script>-->
+
+
+<!--<script>-->
+    <!--var str = 'Abcdef';-->
+<!--//    var re = new RegExp('a', 'i'); //regular experssion //js style-->
+    <!--var re = /a/i;   //perl style-->
+    <!--alert(re.test(str));-->
+<!--</script>-->
+
+<!--search and regexp-->
+<!--<script>-->
+    <!--var str = 'abcdefg';-->
+    <!--alert(str.search(/b/));-->
+<!--</script>-->
+
+<!--<script>-->
+    <!--str = 'abcdefg';-->
+    <!--var re = /\d/;-->
+    <!--alert(str.search(re));-->
+<!--</script>-->
+
+<!--<script>-->
+<!--//    alert(window.navigator.userAgent);-->
+    <!--if(window.navigator.userAgent.search(/chrome/i) != -1){-->
+        <!--alert('chrome');-->
+    <!--}else if(window.navigator.userAgent.search(/safari/i) != -1){-->
+        <!--alert('safari');-->
+    <!--}-->
+<!--</script>-->
+
+<!--<script>-->
+    <!--var str='abc e77 dd 1111111111111 vf788 hh0';-->
+    <!--var re = /\d+/g;-->
+    <!--//量词"+" 好多个-->
+    <!--alert(str.match(re));-->
+<!--</script>-->
+
+<!--<script>-->
+    <!--var str = 'abAadef';-->
+    <!--alert(str.replace(/a/gi, 'Z'));-->
+<!--</script>-->
+
+
+
+<!--//  |  介绍-->
+<!--before translate-->
+<!--<textarea id="txt1" rows="10" cols="10">-->
+
+<!--</textarea>-->
+<!--<input id="btn1" type="button" value="过滤">-->
+<!--after translate-->
+<!--<textarea id="txt2" rows="10" cols="10">-->
+
+<!--</textarea>-->
+<!--<script>-->
+    <!--window.onload = function () {-->
+        <!--var oTxt1 = document.getElementById('txt1');-->
+        <!--var oTxt2 = document.getElementById('txt2');-->
+        <!--var oBtn = document.getElementById('btn1');-->
+
+        <!--oBtn.onclick = function () {-->
+            <!--var re = /我们|你们|他们/g;-->
+
+            <!--oTxt2.value = oTxt1.value.replace(re, '***');-->
+        <!--};-->
+    <!--}-->
+<!--</script>-->
+
+
+
+ <!--[] => or-->
+
+<!--<script>-->
+    <!--var str = '1b2 abc ee 1d2 1b3 1c2';-->
+    <!--var re = /1[abc]2/;-->
+    <!--//[123 456] => 1or2or3...-->
+    <!--//[0-9]-->
+    <!--//[a-z]-->
+    <!--//[0-9a-z]-->
+    <!--//[^a] => except a-->
+    <!---->
+<!--//    var re = /1a2|1b2|1c2/;-->
+    <!--alert(str.match(re));-->
+<!--</script>-->
+
+验证
+</body>
+</html>

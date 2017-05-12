@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+ <a href="" onmouseover="alert('derp')" "">Bob</a>
+<script>
+	function escapeHtml(str) {
+		var div = document.createElement('div');
+		div.appendChild(document.createTextNode(str));
+		return div.innerHTML;
+	};
+
+	var userWebsite = '" onmouseover="alert(\'derp\')" "';
+	var profileLink = '<a href="' + escapeHtml(userWebsite) + '">Bob</a>';
+	var div = document.getElemenetById('target');
+	div.innerHtml = profileLink;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+//	function cat(name, color) {
+//		return {
+//			name: name,
+//			color: color
+//		}
+//	}
+//	var cat1 = cat("damao", "yellow");
+//	var cat2 = cat("ermao", "black");
+
+//	function cat(name, color) {
+//		this.name = name;
+//		this.color = color;
+//	}
+//	var cat1 = new cat("damao", "yellow");
+//	var cat2 = new cat("ermao", "black");
+//	console.log(cat1.name);
+//	console.log(cat2.color);
+	
+//	function cat(name, color) {
+//		this.name = name;
+//		this.color = color;
+//	}
+//	cat.prototype.type = "猫科动物";
+//	cat.prototype.eat = function () {
+//		console.log("eating mouse");
+//	};
+//	var cat1 = new cat("大猫", "yellow");
+//	console.log(cat1.type);
+
+
+//	function animals(){
+//		this.species = "动物";
+//	}
+//	function cat(name, color){
+//		animals.apply(this, arguments);
+//		this.name = name;
+//		this.color = color;
+//	}
+//	var cat1 = new cat("大猫", "黄色");
+
+
+	function animals(){
+		this.species = "动物";
+	}
+	function cat(name, color) {
+		this.name = name;
+		this.color = color;
+	}
+
+	cat.prototype = new animals();
+	cat.prototype.constructor = cat;
+	var cat1 = new cat("大猫","黄色");
+	console.log(cat1.species);
+	console.log(cat1.name);
+</script>
+</body>
+</html>

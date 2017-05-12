@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>布局</title>
+    <style>
+        #div1{ width: 200px; height: 350px; position: absolute; background: #c1c1c1; left: -200px;}
+        .ospan{ top: 129px; position: absolute; width: 25px; color: #000; height: 75px; font-size: 21px; right: -25px; background-color: yellow;}
+    </style>
+</head>
+<body>
+<div id="div1">
+    <span class="ospan">分享到</span>
+</div>
+<script>
+
+    function startMove(speed,str) {
+        var oDiv = document.getElementById('div1');
+        var ispeed = speed;
+        clearInterval(timer);
+        timer = setInterval(function(){
+            if(oDiv.offsetLeft == str) {
+                clearInterval(timer)
+            } else {
+                oDiv.style.left = oDiv.offsetLeft + ispeed + 'px';
+            }
+        },30);
+    }
+//    function startMove2() {
+//        var oDiv = document.getElementById('div1');
+//        var ispeed = -4;
+//        clearInterval(timer);
+//        timer = setInterval(function(){
+//            if(oDiv.offsetLeft == -200) {
+//                clearInterval(timer)
+//            } else {
+//                oDiv.style.left = oDiv.offsetLeft + ispeed + 'px';
+//            }
+//        },30);
+//    }
+
+    window.onload = function() {
+        var oDiv = document.getElementById('div1');
+        oDiv.onmouseover = function(){ startMove(4,0);};
+        oDiv.onmouseout  = function(){ startMove(-4,-200);};
+    };
+    var timer = null;
+</script>
+</body>
+</html>

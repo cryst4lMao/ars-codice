@@ -1,0 +1,38 @@
+
+transform(变形)
+        translate(移动) rotate(旋转) skew(倾斜) scale(缩放)
+
+animation(动画)
+
+transition(过渡效果)
+transition-property  变形名称
+transition-duration  变形时间
+transition-timing-function  变形速度变化曲线
+transition-delay    变相延迟
+
+
+translation: fall-up 1s linear 0.2
+
+
+-ms-
+-webkit-
+-moz-
+-o-
+
+移动端meta
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="apple-mobile-web-app-capable" content="YES>
+默认删除苹果工具栏和菜单栏
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+以上两个会让网页内容以应用程序风格呈现，并使状态栏透明
+
+<meta name="format-detection" content="telephone=no">
+<mate name="format-detection" content="email=no">
+不识别邮箱和不会将数字识别为电话号码
+
+<link rel="apple-touch-icon-precomposed" href="http://spicon.blog.163.com/...">
+android设置webapp放置在主屏幕上的icon文件路径
+
+<link rel="apple-touch-icon" href="./../...">
+ios设置webapp放置在主屏幕上的icon文件路径

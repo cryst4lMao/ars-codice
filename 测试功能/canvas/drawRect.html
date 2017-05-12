@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drawRect</title>
+</head>
+<body>
+<canvas id="canvas" style="border: 1px solid #000;"></canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext("2d");
+
+        drawRect(context, 100, 100, 200, 100, 10, "yellow");
+        drawRect(context, 150, 150, 200, 100, 10, "rgba(44,154,33,0.5)");
+
+        function drawRect(cxt, x, y, width, height, borderwidth, fillcolor) {
+            cxt.beginPath();
+            cxt.moveTo(x,y);
+            cxt.lineTo(x+width,y);
+            cxt.lineTo(x+width,y+height);
+            cxt.lineTo(x,y+height);
+            cxt.lineTo(x,y);
+            cxt.closePath();
+
+            cxt.fillStyle = fillcolor;
+            cxt.fill();
+
+            cxt.lineWidth = borderwidth;
+            cxt.stroke();
+        }
+    }
+</script>
+</body>
+</html>

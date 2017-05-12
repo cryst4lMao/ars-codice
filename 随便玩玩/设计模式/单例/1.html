@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	var temp = function () {
+		var privateValue = "test";
+		function privateFn() {
+			document.writeln(privateValue);
+		}
+
+		return {
+			publicMethod: function () {
+				privateFn();
+			},
+			publicValue: 'this is public area'
+		};
+	};
+	var shili = new temp();
+	shili.publicMethod();
+	document.writeln(shili.publicValue);
+
+	document.addEventListener('DOMContentLoaded', function (event) {
+		document.write("testGreeting");
+	});
+	//等同于
+	document.open();
+	document.write("testGreeting");
+	document.close();
+</script>
+</body>
+</html>

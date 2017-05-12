@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input id="btn1" type="button" value="读取文件"/>
+<script>
+    window.onload = function(){
+        var oBtn = document.getElementById('btn1');
+
+
+
+
+
+        oBtn.onclick = function(){
+            //创建Ajax对象
+//            var oAjax = new XMLHttpRequest();
+//            alert(oAjax);
+            var oAjax = null;
+            if(XMLHttpRequest)
+            {
+                oAjax = new XMLHttpRequest();
+            }
+            else
+            {
+                oAjax = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+//            alert(oAjax);
+
+            //连接服务器
+//            open(方法, url, 是否异步)
+            oAjax.open('GET', 'abc.txt', true);
+
+            //发送请求
+            oAjax.send();
+
+            //接收返回
+            oAjax.onreadystatechange = function() {
+//               alert(oAjax.readyState);
+                if(oAjax.readyState == 4) {
+                    if(oAjax.status == 200) {
+                        alert('success___'+oAjax.responseText);
+                    } else {
+                        alert('failure');
+                    }
+                }
+            };
+        };
+
+
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-Type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="apple-mobile-web-app-status-style" content="black"/>
+		<meta name="apple-touch-fullscreen" content="YES" />
+
+		<style type="text/css">
+
+			body{
+				margin: 0;
+				padding: 0;
+				background: #333;
+				overflow: hidden;
+				height: 100%;
+				/*position: absolute;*/
+			}
+			#canvas{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			ul, li{list-style-type: none; padding: 0; margin: 0;overflow: hidden;height: 100%}
+			/*1.hack*/
+			/*li{
+				line-height: 667px;
+				vertical-align: middle;
+			}
+			li img{
+				vertical-align: middle;
+			}*/
+			/*2.改变盒模型*/
+			/*li{
+				display: table-cell;
+				vertical-align: middle;
+			}*/
+			/*3.高级浏览器模式*/
+			li{
+				position: absolute;
+				display: -webkit-box;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				-webkit-backface-visibility: hidden;
+			}
+
+			li img {
+				max-width: 100%;
+				max-height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 外层画布 -->
+		<div id="canvas"></div>
+		<script src="slider.js"></script>
+		<script async>
+		//jsonstyle:对象或者字符串，数组
+			var list = [{
+				height: 300,
+				width: 277,
+				img: "imgs/1.jpg"
+			},{
+				height: 300,
+				width: 337,
+				img: "imgs/2.jpg"
+			},{
+				height: 291,
+				width: 550,
+				img: "imgs/3.jpg"
+			},{
+				height: 300,
+				width: 400,
+				img: "imgs/4.jpg"
+			},{
+				height: 281,
+				width: 500,
+				img: "imgs/5.jpg"
+			},{
+				height: 214,
+				width: 300,
+				img: "imgs/6.jpg"
+			},{
+				height: 300,
+				width: 479,
+				img: "imgs/7.jpg"
+			}];
+		
+			slider({
+				'dom': document.getElementById('canvas'),
+				'list': list
+			})
+		</script>
+	</body>
+</html>

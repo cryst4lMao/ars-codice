@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drawStar</title>
+</head>
+<body>
+<canvas id="canvas" style="border: 1px solid #000000;"></canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext("2d");
+
+        context.fillStyle = "#000";
+        context.fillRect(0,0,canvas.width,canvas.height);
+
+
+        for(var num=0; num<100; num++){
+            var a = Math.random()*10+10;
+            var b = Math.random()*canvas.width;
+            var c = Math.random()*canvas.height;
+
+
+            drawStar(context, a/2, a, b, c);
+        }
+
+
+        
+        function drawStar(cxt, r, R, x, y) {
+            cxt.beginPath();
+            for( var i=0; i<5; i++){
+                cxt.lineTo(Math.cos( (18+i*72)/180*Math.PI )*R + x,
+                            -Math.sin( (18+i*72)/180*Math.PI )*R + y);
+                cxt.lineTo(Math.cos( (54+i*72)/180*Math.PI )*r + x,
+                        -Math.sin( (54+i*72)/180*Math.PI )*r + y);
+            }
+            cxt.closePath();
+
+            cxt.fillStyle = "red";
+            cxt.fill();
+
+            cxt.lineWidth = 1;
+            cxt.strokeStyle = "yellow";
+            cxt.stroke();
+
+        }
+    }
+</script>
+</body>
+</html>

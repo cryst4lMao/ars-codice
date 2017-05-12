@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fullPage</title>
+    <link rel="stylesheet" href="css/jquery.fullPage.css" />
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+    <style>
+        body, html, header, div, ul, li, a, p, div, h1, h2{ margin: 0; padding: 0; font-family: "微软雅黑";}
+        li{ list-style: none;}
+        a{ text-decoration: none;}
+
+
+        /*头部*/
+        .hd{ width: 100%; height: 60px; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.8); z-index:1;}
+        .hd .inner{ width: 980px; height: 60px; margin: 0 auto;}
+        .hd .inner .logo{ float: left; margin-top: 16px; margin-right: 20px;}
+        .hd .inner nav{ float: left;}
+        .hd .inner nav li{ float: left;}
+        .hd .inner nav li a{ line-height: 60px; display:block; padding: 0 20px; color: #fff;}
+        .hd .inner nav li a:hover, .hd .inner nav li.active a{ background: #fc0; color: rgba(0,0,0,0.8);}
+
+
+
+         /*public内容*/
+        .section{ height: 100%; overflow: hidden;}
+        .section .left{ position: absolute; left: 5%; top: 50%; margin-top:-200px; z-index: 2;}
+        .section .left li{ float: left; margin-left: 20px;}
+        .section .left li p{ margin-left: 35px; margin-top: 8px;}
+        .section .left li a{ width: 98px; height: 36px; background: url("images/buy.jpg") no-repeat center; display: block; margin-left: 35px; margin-top: 8px;}
+
+        .section .right{ position: absolute; right: 5%; top: 15%; z-index: 3;}
+        .section .right h1{ font-size: 34px; color: #ccc; }
+        .section .right p{ font-size: 18px; line-height: 1.5em; margin-top: 23px; margin-bottom: 10px;}
+        .section .bg{ position: absolute; right: 0; bottom: 0; z-index: 1;}
+        /*第一屏*/
+        .s1{ background: url("images/s1.jpg") no-repeat center;}
+        .s1 img{ position: absolute; top: 50%; left: 50%; margin-left: -545px; margin-top: -230px; opacity: 0;}
+        .s1.active img{ opacity: 1; transition: 0.8s; transition-delay: 0.8s;}
+
+        /*第二屏*/
+        .s2{ background: url("images/s2.jpg") no-repeat center;}
+        .s2 .left li{ transform: translateY(1000px); }
+        .s2 .left li:nth-child(1){ transition-delay: 0.8s;}
+        .s2 .left li:nth-child(2){ transition-delay: 1.2s;}
+        .s2 .left li:nth-child(3){ transition-delay: 1.6s;}
+        .s2.active .left li{ transform: translateY(0); transition: 1.5s;}
+
+        /*第三屏*/
+        .s3{ background: url("images/s3.jpg") no-repeat center;}
+        /*.s3 .left li{transition-delay: 0.8s;}*/
+        .s3 .left li:nth-child(1){ transform: translateX(0);}
+        .s3 .left li:nth-child(2){ transform: translateX(-279px);}
+        .s3 .left li:nth-child(3){ transform: translateX(-558px);}
+        .s3.active .left li{ transform: translateX(0); transition: 0.8s;}
+
+        /*第四屏*/
+        .s4{ background: url("images/s4.jpg") no-repeat center;}
+        .s4 .left li:nth-child(1){ transform: translate(279px, -1000px);}
+        .s4.active .left li:nth-child(1){ -webkit-animation: moveL 3s .8s forwards;}
+        .s4.active .left li:nth-child(1){ animation: moveL 3s .8s forwards;}
+        .s4 .left li:nth-child(2){ transform: translate(0px, -1000px);}
+        .s4.active .left li:nth-child(2){ -webkit-animation: moveC 3s .8s forwards;}
+        .s4.active .left li:nth-child(2){ animation: moveC 3s .8s forwards;}
+        .s4 .left li:nth-child(3){ transform: translate(-279px, -1000px);}
+        .s4.active .left li:nth-child(3){ -webkit-animation: moveR 3s .8s forwards;}
+        .s4.active .left li:nth-child(3){ animation: moveR 3s .8s forwards;}
+
+        @-webkit-keyframes moveL {
+            0%{ transform: translate(279px, -1000px);}
+            20%{ transform: translate(279px, 0px);}
+            40%{ transform: translate(279px, -50px);}
+            60%{ transform: translate(279px, 0px);}
+            100%{ transform: translate(0px, 0px);}
+        }
+        @-webkit-keyframes moveC {
+            0%{ transform: translate(0, -1000px);}
+            20%{ transform: translate(0, 0);}
+            40%{ transform: translate(0, -50px);}
+            60%{ transform: translate(0, 0);}
+            100%{ transform: translate(0, 0);}
+        }
+        @-webkit-keyframes moveR {
+            0%{ transform: translate(-279px, -1000px);}
+            20%{ transform: translate(-279px, 0);}
+            40%{ transform: translate(-279px, -50px);}
+            60%{ transform: translate(-279px, 0);}
+            100%{ transform: translate(0, 0);}
+        }
+        @keyframes moveL {
+            0%{ transform: translate(279px, -1000px);}
+            20%{ transform: translate(279px, 0px);}
+            40%{ transform: translate(279px, -50px);}
+            60%{ transform: translate(279px, 0px);}
+            100%{ transform: translate(0px, 0px);}
+        }
+        @keyframes moveC {
+            0%{ transform: translate(0, -1000px);}
+            20%{ transform: translate(0, 0);}
+            40%{ transform: translate(0, -50px);}
+            60%{ transform: translate(0, 0);}
+            100%{ transform: translate(0, 0);}
+        }
+        @keyframes moveR {
+            0%{ transform: translate(-279px, -1000px);}
+            20%{ transform: translate(-279px, 0);}
+            40%{ transform: translate(-279px, -50px);}
+            60%{ transform: translate(-279px, 0);}
+            100%{ transform: translate(0, 0);}
+        }
+
+        /*第五屏*/
+        .s5{ background: url("images/s5.jpg") no-repeat center; perspective: 500px;}
+        .s5 .left li{ transform: translate3d(-1999px, -1000px, -500px) rotateX(145deg); }
+        .s5.active .left li:nth-child(1){transition-delay: 0.8s;}
+        .s5.active .left li:nth-child(2){transition-delay: 1.0s;}
+        .s5.active .left li:nth-child(3){transition-delay: 1.2s;}
+        .s5.active .left li{ transform: translate3d(0, 0, 0) rotateX(0deg); transition: 0.5s;}
+
+
+    </style>
+</head>
+<body>
+<script>
+    $(function(){
+        $('#container').fullpage({
+            anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
+            menu: '#menu',
+            scrollingSpeed: 500,
+            'navigation': true
+
+
+        });
+    });
+</script>
+<header class="hd">
+    <div class="inner">
+        <a class="logo" href="#"><img src="images/logo.png"></a>
+        <nav>
+            <ul id="menu">
+                <li data-menuanchor="page1"><a href="#page1">首页</a></li>
+                <li data-menuanchor="page2"><a href="#page2">寄语</a></li>
+                <li data-menuanchor="page3"><a href="#page3">笑话</a></li>
+                <li data-menuanchor="page4"><a href="#page4">水壶</a></li>
+                <li data-menuanchor="page5"><a href="#page5">西游记</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="container">
+    <div class="section s1">
+        <!--<h2>第一屏</h2>-->
+        <img src="images/wenzi.png">
+    </div>
+    <div class="section s2">
+        <!--<h2>第二屏</h2>-->
+        <div class="left">
+            <ul>
+                <li>
+                    <img src="images/img1.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <img src="images/img2.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <img src="images/img3.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <h1>扬之</h1>
+            <p>价格: 99元起<br/>
+            艺术家:吉娃娃</p>
+            <a href="#">主页君</a>
+        </div>
+        <div class="bg"><img src="images/sc2.png"></div>
+    </div>
+    <div class="section s3">
+        <!--<h2>第三屏</h2>-->
+        <div class="left">
+            <ul>
+                <li>
+                    <img src="images/img1.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <img src="images/img2.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <img src="images/img3.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <h1>扬之</h1>
+            <p>价格: 99元起<br/>
+                艺术家:吉娃娃</p>
+            <a href="#">主页君</a>
+        </div>
+        <div class="bg"><img src="images/sc2.png"></div>
+    </div>
+    <div class="section s4">
+        <!--<h2>第四屏</h2>-->
+        <div class="left">
+            <ul>
+                <li>
+                    <img src="images/img1.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <img src="images/img2.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <img src="images/img3.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <h1>扬之</h1>
+            <p>价格: 99元起<br/>
+                艺术家:吉娃娃</p>
+            <a href="#">主页君</a>
+        </div>
+        <div class="bg"><img src="images/sc2.png"></div>
+    </div>
+    <div class="section s5">
+        <!--<h2>第五屏</h2>-->
+        <div class="left">
+            <ul>
+                <li>
+                    <img src="images/img1.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <img src="images/img2.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <img src="images/img3.png">
+                    <p>尺寸<br/>30*40 / 40 * 50</p>
+                    <a href="#"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <h1>扬之</h1>
+            <p>价格: 99元起<br/>
+                艺术家:吉娃娃</p>
+            <a href="#">主页君</a>
+        </div>
+        <div class="bg"><img src="images/sc2.png"></div>
+    </div>
+
+</div>
+</body>
+</html>

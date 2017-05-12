@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<div id="select"></div>
+<div id="select1"></div>
+<script src="index.js"></script>
+<script>
+	alert("存在问题,还未修改");
+	var data =[
+		{'key':'安徽','value':'ah'},
+		{'key':'浙江','value':'zj'},
+		{'key':'江苏','value':'js'}
+	];
+	var data2 =[
+		{'name':'六安','value':'la'},
+		{'name':'合肥','value':'hf'},
+		{'name':'安庆','value':'aq'}
+	];
+	simSelect({
+		'dom':document.getElementById('select'),
+		'data':data,
+		'name':'dq',
+		'fn':function(a){
+			if(a == 'ah'){
+				simSelect({
+					'dom':document.getElementById('select1'),
+					'data':data2,
+					'name':'sx',
+					'fn':function(b){
+						alert(b);
+					}
+				});
+			}
+		}
+	});
+</script>
+</body>
+</html>

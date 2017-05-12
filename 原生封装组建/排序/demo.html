@@ -1,0 +1,159 @@
+<html>
+<head>
+	<title>方程1</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+	<style type="text/css">
+	</style>
+	<script>
+		function sortTable(el, tbodyId, compareFun) {
+// 添加其它列的状态
+			var nowTd = $(el);
+			if (!nowTd.is('td')) {
+				nowTd = nowTd.closest('td')
+			}
+			nowTd.siblings('td').each(function() {
+				if ($(this).find('[data-dirct]').length) {
+					$(this).find('[data-dirct]').attr('data-dirct', '');
+				} else {
+					$(this).attr('data-dirct', '');
+				}
+			});
+			var nowDirct = $(el).attr('data-dirct');
+			var table = $(el).closest('table');
+			var tbody = $('#' + tbodyId)
+			if (!nowDirct) {
+				nowDirct = 'asc';
+				$(el).attr('data-dirct', nowDirct);
+			} else {
+				$(el).attr('data-dirct', nowDirct == 'asc' ? 'desc' : 'asc');
+				reverse();
+				setSeq();
+				return;
+			}
+
+			function reverse() {
+				var trs2 = table.find('tr:not(:first)');
+				for ( var i = trs2.length - 2; i >= 0; i--) {
+					trs2.eq(i).appendTo(tbody);
+				}
+			}
+
+			function setSeq() {
+				var tsq = table.find('.sequence');
+				for ( var i = 0; i < tsq.length; i++) {
+					tsq.eq(i).text((i + 1));
+				}
+			}
+
+			function getTdVal(td) {
+				var val = td.attr('data-val');
+				if (!val) {
+					val = $.trim(td.text());
+				}
+				if (/^[\d\.]+$/.test(val)) {
+					val = 1 * val;
+				}
+				return val;
+			}
+			if (!compareFun) {
+				compareFun = function(str1, str2) {
+					if (typeof str1 == "number" && typeof str2 == "number") {
+						return str1 - str2;
+					} else {
+						str1 = '' + str1;
+						str2 = '' + str2;
+						return str1.localeCompare(str2);
+					}
+				}
+			}
+// 得到所有tr 得到单元格位置
+			var trs = $(el).closest('table').find('tr:not(:first)');
+			var index = $(el).closest('td').index();
+			for ( var i = 0; i < trs.length - 1; i++) {
+				for ( var j = 0; j < trs.length - 1 - i; j++) {
+					var str1 = getTdVal(trs.eq(j).find('td').eq(index));
+					var str2 = getTdVal(trs.eq(j + 1).find('td').eq(index));
+					if (compareFun(str1, str2) > 0) {
+						trs.eq(j + 1).after(trs.eq(j));
+						var tmp = trs[j + 1];
+						trs[j + 1] = trs[j];
+						trs[j] = tmp;
+					}
+				}
+			}
+			setSeq();
+		}
+	</script>
+</head>
+<body>
+<table>
+	<thead>
+	<tr>
+		<td>序号</td><td onclick="sortTable(this, 'trPanel')">排序1</td><td onclick="sortTable(this, 'trPanel')">排序2</td>
+	</tr>
+	</thead>
+	<tbody id="trPanel">
+	<tr>
+		<td class="sequence">1</td><td  data-val="20.0">20.0</td><td>5</td>
+	</tr>
+	<tr>
+		<td class="sequence">2</td><td  data-val="10.0">10.0</td><td>3</td>
+	</tr>
+	<tr>
+		<td class="sequence">3</td><td data-val="10.0">10.0</td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">4</td><td data-val="10.0">10.0</td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val="10.0">10.0</td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val="10.0">10.0</td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val="6.2">6.2</td><td>2</td>
+	</tr>
+
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val="0.0">0.0</td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val=""></td><td>2</td>
+	</tr>
+	<tr>
+		<td class="sequence">5</td><td data-val="0.0">0.0</td><td>2</td>
+	</tr>
+
+	</tbody>
+</table>
+</body>
+</html>

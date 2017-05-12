@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贪吃蛇</title>
+	<style>
+		.col{
+			width: 20px;
+			height: 20px;
+			float: left;
+			background-color: #00b3ee;
+			border: 1px solid #8c8c8c;
+			box-sizing: border-box;
+		}
+		.col.act{background-color: red;}
+		.col.food{background-color: #000000;}
+		.row{
+			height: 20px;
+		}
+		.container{
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+		}
+		.score_box p{display: inline-block;}
+	</style>
+</head>
+<body>
+	<div id="container" class="container">
+		<h2>贪吃蛇</h2>
+		<div class="score_box">Score<p id="score">--</p></div>
+		<div id="map" class="map"></div>
+	</div>
+</body>
+<script>
+//记分板
+	let score = document.getElementById("score");
+//地图
+	let snakeMap = document.getElementById("map");
+//地图的行数和列数
+	const rowNum = 25,  //行数
+		colNum = 25;  //列数
+	map.style.width = colNum * 25 + "px";
+	map.style.height = rowNum * 25 + "px";
+	let arrMap = [];  //记录每一个行
+	let direction = "right";
+	let changeDir = true;
+	let timerDelay;  //延时器
+	let timerMove; //定时器
+	//snake init
+	let x = 12,
+		y = 12;
+	//food init
+	let foodX = 0,
+		foodY = 0;
+	//score
+	let scoreNum = 0;
+	//map pix
+	for(let i=0; i<rowNum; i++){
+		//build row pixs
+		let rowDiv = document.createElement("div");
+		rowDiv.className = "row";
+		snakeMap.appendChild(rowDiv);
+//	记录行中每一个单元格
+		let arrRow = [];
+		for(let j=0; j<colNum; j++){
+			let colDiv = document.createElement("div");
+			colDiv.className = "col";
+			rowDiv.appendChild(colDiv);
+			arrRow.push(colDiv);
+		}
+		arrMap.push(arrRow);
+
+	}
+
+	let snakeBody = [];
+	y = Math.floor(Math.random() * 25);
+	console.log("行坐标" + x);
+	x = Math.floor(Math.random() * 22);
+	for(let i = 0; i<3; i++){
+		x += 1;
+		arrMap[y][x].className = 'col act';  //className覆盖class
+		snakeBody[i] = arrMap[y][x];
+	}
+	//食物随机出现
+	function ranFood() {
+		foodX = Math.floor(Math.random()*25);
+		foodY = Math.floor(Math.random()*25);
+		if(arrMap[foodY][foodX].className === "col act"){
+			ranFood();
+		}else{
+			arrMap[foodY][foodX].className = "col food";
+		}
+
+	}
+	ranFood();
+
+//	为页面添加键盘事件
+	document.onkeydown = function (e) {
+		var event = window.event || e;
+		if (!changeDir){
+			return;
+		}
+		//如果蛇向右移动,而且点击左按键,则不作任何操作
+		if (direction == 'right' && event.keyCode == 39) {
+			return;
+		} else if (direction == 'left' && event.keyCode == 37){
+			return;
+		}else if (direction == 'top' && event.keyCode == 38){
+			return;
+		}else if (direction == 'bottom' && event.keyCode == 40){
+			return;
+		}
+		//方向键控制方向
+		switch (event.keyCode) {
+			case 37:{
+				direction = 'left';
+				break;
+			}
+			case 38:{
+				direction = 'top';
+				break;
+			}
+			case 39:{
+				direction = 'right';
+				break;
+			}
+			case 40:{
+				direction = 'bottom';
+				break;
+			}
+			default:{
+				break;
+			}
+		}
+		//为了避免快速对此点击方向按键(修改方向)
+		//防止出现 bug
+		changeDir = false;
+		//300毫秒后,将bool 的值赋值为 true;
+		timerDelay = setTimeout(function () {
+			changeDir = true;
+		},300)
+	};
+
+	//snake moving
+stampMove = setInterval(function () {
+//	clearTimeout(timerDelay);
+	//判断方向
+	switch (direction) {
+		case "right":{
+			x++;
+			break;
+		}
+		case "left":{
+			x--;
+			break;
+		}
+		case "top":{
+			y--;
+			break;
+		}
+		case "bottom":{
+			y++;
+			break;
+		}
+		default:{
+			break;
+		}
+
+	}
+	//出界
+	if(x>=colNum || x<0 || y>=rowNum || y<0){
+		alert("Game Over");
+		clearTimeout(stampMove);
+		return false;
+	}
+	//碰到自己
+	for(let i=0; i<snakeBody.length; i++){
+		//将移动后的第一个div与移动前的所有div比较,有重合,即碰到自己
+		if(snakeBody[i] === arrMap[y][x]){
+			alert("Game Over");
+			clearTimeout(stampMove);
+			return false;
+		}
+	}
+	//判断前面是否有食物
+	if(foodX === x && foodY === y){
+		arrMap[y][x].className = "col act";
+		//add snake length
+		snakeBody.push(arrMap[y][x]);
+		//add score
+		scoreNum ++;
+		score.innerText = scoreNum;
+		ranFood();
+	}else{
+		//删除蛇尾
+		snakeBody[0].className = "col";
+		snakeBody.shift();
+		//增加蛇头
+		arrMap[y][x].className = "col act";
+		snakeBody.push(arrMap[y][x]);
+	}
+}, 800);
+
+</script>
+</html>

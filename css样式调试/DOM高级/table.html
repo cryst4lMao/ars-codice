@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    window.onload = function() {
+        //submit delete
+        var oTab = document.getElementById('tab1');
+        var oBtn = document.getElementById('btn1');
+        var oTxt = document.getElementById('txt1');
+        var numId = oTab.tBodies[0].rows.length + 1;
+
+        oBtn.onclick = function() {
+            var oTr = document.createElement('tr');
+            var oTd;
+
+            oTd = document.createElement('td');
+            oTd.innerHTML = numId++;
+            oTr.appendChild(oTd);
+
+            oTd = document.createElement('td');
+            oTd.innerHTML = oTxt.value;
+            oTr.appendChild(oTd);
+
+            oTd = document.createElement('td');
+            oTd.innerHTML = '<a href="javascript:;">删除</a>';
+            oTr.appendChild(oTd);
+
+            oTd.getElementsByTagName('a')[0].onclick  = function() {
+                oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+            };
+
+            oTab.tBodies[0].appendChild(oTr);
+        };
+
+
+        //search
+        var oTxt2 = document.getElementById('txt2');
+        var oBtn2 = document.getElementById('btn2');
+        oBtn2.onclick = function() {
+//            alert(oBtn2.value);
+            for(var i=0; i<oTab.tBodies[0].rows.length; i++) {
+
+                var sValueInTab = oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+                var sTxt2       = oTxt2.value.toLowerCase();
+//                var oldColor = oTab.tBodies[0].rows[i].style.background;
+                if(sValueInTab == sTxt2 ) {
+                    oTab.tBodies[0].rows[i].style.background = 'yellow';
+                } else {
+                    oTab.tBodies[0].rows[i].style.background = '';
+                }
+            }
+        };
+
+        var oldBgColor ;
+//        alert(oTab.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[2].getElementsByTagName('td')[1].innerHTML);
+//          alert(oTab.tBodies[0].rows[2].cells[1].innerHTML);
+        for(var i=0; i<oTab.tBodies[0].rows.length; i++) {
+            oTab.tBodies[0].rows[i].style.background= i%2 ? '#ccc' : '';
+            oTab.tBodies[0].rows[i].onmouseover = function() {
+                oldBgColor = this.style.background;
+                this.style.background = 'yellow';
+            };
+            oTab.tBodies[0].rows[i].onmouseout = function() {
+                this.style.background = oldBgColor;
+            };
+        }
+
+    };
+</script>
+<input id="txt1" type="text" />
+<input id="btn1" type="button" value="submit" />
+<input id="txt2" type="text" />
+<input id="btn2" type="button" value="search" />
+<table id="tab1" border="1" width="400" style="margin-top: 25px;">
+    <thead>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>操作</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>blue</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>green</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>red</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>black</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>monther</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>xixixi</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

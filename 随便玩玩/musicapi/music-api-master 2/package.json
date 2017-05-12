@@ -1,0 +1,22 @@
+{
+  "name": "music-api-netease",
+  "version": "1.0.0",
+  "description": "网易云音乐api接口",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "Netease",
+    "music api",
+    "云音乐",
+    "网易云音乐"
+  ],
+  "repository": "https://github.com/luwenjiechn/music-api.git",
+  "author": "luwenjiechn <luwenjiechn@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  }
+}

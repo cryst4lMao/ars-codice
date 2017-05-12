@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>炒鸡炒鸡溜</title>
+    <style>
+        body{ margin: 0; padding: 0;}
+        a{ text-decoration: none;}
+        .bg{ background: url("./images/bg.jpg") no-repeat top center; width: 100%; height: 1080px;}
+        .box{ position: absolute; top: 150px; width: 100%;}
+        .navigation{ position:relative; width: 1080px; height: 45px; margin: 0 auto;}
+        ul li{ list-style: none;}
+        .nav{ width: 1020px; margin: 0; padding: 0; font-family: "Myriad Pro", "Trebuchet MS", sans-serif;}
+        .nav li{ float:left; width: 170px; height: 85px; cursor: pointer; position: relative;}
+        .nav li a.oa{ width: 170px; height: 85px; position: absolute; top: 0; left: 0; background: url("./images/overlay.png") no-repeat; box-shadow: 0 0 2px #000 inset;}
+        .nav li a img{
+            width: 0;
+            height: 0;
+            position: absolute;
+            bottom: 0;
+            left: 85px;
+            border: none;
+            z-index: 2;
+            -moz-box-shadow:0px 0px 4px #000;
+            -webkit-box-shadow:0px 0px 4px #000;
+            box-shadow:0px 0px 4px #000;
+        }
+        .nav li span.sdt_active{
+            position:absolute;
+            background:#111;
+            /*top:85px;*/
+            width:170px;
+            height:0px;
+            left:0px;
+            z-index:1;
+            -moz-box-shadow:0px 0px 4px #000 inset;
+            -webkit-box-shadow:0px 0px 4px #000 inset;
+            box-shadow:0px 0px 4px #000 inset;
+        }
+        .nav li span.sdt_wrap{
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 170px;
+            height: 25px;
+            z-index: 2;
+        }
+        .nav li span.sdt_wrap .sdt_link,
+        .nav li span.sdt_wrap .sdt_descr{
+            text-transform: uppercase;
+            margin-left: 15px;
+            /*box-shadow: 0px 0px 1px #000;*/
+        }
+        .nav li span.sdt_wrap .sdt_link{
+            float: left;
+            clear: both;
+            color: #fff;
+            font-size: 24px;
+        }
+        .nav li span.sdt_wrap .sdt_descr{
+            float: left;
+            clear: both;
+            color: #197efb;
+            width: 155px;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+        .nav li .sdt_box{
+            display: none;
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            top: 85px;
+            left: 0;
+            background: #000;
+            /*padding-left: 15px;*/
+        }
+        .nav li .sdt_box a{
+            float: left;
+            clear: both;
+            line-height: 30px;
+            margin-left: 15px;
+            color:#0B75AF;
+        }
+        .nav li .sdt_box a:nth-child(1){
+            margin-top: 15px;
+        }
+        .nav li .sdt_box a:hover{
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <div class="box">
+        <div class="navigation">
+            <ul class="nav" id="nav">
+                <li>
+                    <a class="oa" href="javascript:;">
+                        <img src="./images/1.jpg" alt="pic_one" style=""/>
+                        <span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">About me</span>
+							<span class="sdt_descr">Get to know me</span>
+						</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="oa" href="javascript:;">
+                        <img src="./images/1.jpg" alt="pic_one" style=""/>
+                        <span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">About me</span>
+							<span class="sdt_descr">Get to know me</span>
+						</span>
+                    </a>
+                    <div class="sdt_box">
+                        <a href="#">Websites</a>
+                        <a href="#">Illustrations</a>
+                        <a href="#">Photography</a>
+                    </div>
+                </li>
+                <li>
+                    <a class="oa" href="javascript:;">
+                        <img src="./images/1.jpg" alt="pic_one" style=""/>
+                        <span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">About me</span>
+							<span class="sdt_descr">Get to know me</span>
+						</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="oa" href="javascript:;">
+                        <img src="./images/1.jpg" alt="pic_one" style=""/>
+                        <span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">About me</span>
+							<span class="sdt_descr">Get to know me</span>
+						</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+<script>
+    $(function(){
+        $(".nav li").bind("mouseenter",function(){
+            var $elem = $(this);
+            $elem.find("img")
+                    .stop()
+                    .animate({
+                        'width':'170px',
+                        'height':'170px',
+                        'left':'0'
+                    },400,'easeOutBack')
+                    .andSelf()
+                    .find(".sdt_wrap")
+                    .stop()
+                    .animate({
+                        'top':'170px'
+                    },500,'easeOutBack')
+                    .andSelf()
+                    .find(".sdt_active")
+                    .stop()
+                    .animate({
+                        'height':'170px',
+                        'top':'85px'
+                    },300,function(){
+                        var $sub_menu = $elem.find(".sdt_box");
+                        if($sub_menu.length){
+                            var left = '170px';
+                            $sub_menu.show().animate({'left':left},200);
+                        }
+                    });
+        }).bind("mouseleave",function(){
+            var $elem = $(this);
+            var $sub_menu = $elem.find(".sdt_box");
+            if($sub_menu.length) {
+                $sub_menu.hide().css('left','0');
+            }
+            $elem.find('.sdt_active')
+                    .stop()
+                    .animate({'height':'0'},500,'easeOutBack')
+                    .andSelf()
+                    .find("img")
+                    .stop()
+                    .animate({
+                        'width':'0',
+                        'height':'0',
+                        'left':'85px'
+                    },500,'easeOutBack')
+                    .andSelf()
+                    .find('.sdt_wrap')
+                    .stop()
+                    .animate({
+                        'top':'25px'
+                    },500,'easeOutBack')
+        });
+
+    });
+</script>
+</body>
+</html>

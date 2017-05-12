@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="HuKZbEtsCC" />
+    <title>Design of Mao</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!--<link rel="stylesheet" href="css/gainseestyle.css" />-->
+
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+
+    <style>
+
+    </style>
+</head>
+
+
+<body>
+<script>
+    console.log(window.innerHeight);
+    $(document).ready(function(){
+        $("button").click(function(){
+            $(".navbar-inverse").toggleClass("navbar-bg");
+        });
+        $(".news-item").click(function(){
+            window.location=$(this).find("a").attr("href");
+            return false;
+        });
+    });
+    //高度自适应
+    var winHeight = 0;
+    $(document).ready(function () {
+        if (window.innerHeight){
+            winHeight = window.innerHeight;
+        } else if ((document.body) && (document.body.clientHeight)){
+            winHeight = document.body.clientHeight;
+        }
+        //首屏图片
+        $(".stripe").height(winHeight);
+        //首屏文字
+        $(".text-center-tight").height(winHeight);
+        //箭头
+        var str = winHeight -100;
+        str += "px";
+        $(".anchor").css("margin-top",str);
+
+        console.log($(".stripe .container-fluid article").scrollTop());
+    })
+</script>
+<header class="stripe full">
+
+    <div class="contain">
+
+        <div  class="text-center-tight"><div class="inner">
+            <h2>More than your thought...</h2>
+            <h6>你的能量超出你的想象。</h6>
+        </div></div>
+
+        <a href="javascript:void(0)" class="anchor scroll-down fadeInDown"></a>
+
+    </div>
+
+    <div class="bg-image" style="background-image:url(images/1-160519102031223.jpg)"></div>
+
+</header>
+<nav class="absolute">
+    <nav class="navbar navbar-inverse navbar-static-top ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand logoaa" href="index.html">
+                        VI
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse daohang">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='index.html'>首页</a></li>
+                    <li><a href='anli.html'  rel='dropmenu1'><span>案例</span></a></li>
+                    <li><a href='about.html' ><span>关于</span></a></li>
+                    <li><a href='contact.html' ><span>联系</span></a></li>
+                </ul>
+            </div>
+            <div class="navbar-iphone">
+                <span>010</span>-8888888
+            </div>
+        </div>
+    </nav>
+</nav>
+
+<article class="stripe">
+    <div class="container1 anchor-scroll">
+        <div class="row featurette">
+            <div class="col-md-12" data-show="on-scroll">
+                <h2>照片来自新浪微博@照相师_李晨</h2>
+                <p class="lead">Whatever is worth doing at all is worth doing well</p>
+                <a href="http://www.guoshi.com/about" class="btn-outline">查看详细介绍</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <section class="work-list" >
+            <div class="inner" id="work-feed">
+
+                <article class="work-item " data-show="on-scroll" >
+                    <a href="">
+                        <picture>
+                            <img src='images/1-160309134I30-L.jpg' border='0' width='120' height='120' alt='树时光绿茶品牌全案策划设计'>
+                        </picture>
+                        <div class="content">
+                            <div>
+                                <div>
+                                    <h1>照片来自新浪微博@照相师_李晨</h1>
+                                    <h2>Love is so short, forgetting is so long.</h2>
+                                </div>
+                            </div>
+                        </div></a>
+                </article>
+
+            </div>
+        </section>
+        <section class="work-list" >
+            <div class="inner" id="work-feed">
+
+                <article class="work-item " data-show="on-scroll" >
+                    <a href="">
+                        <picture>
+                            <img src='images/1-16030G544460-L.jpg' border='0' width='120' height='120' alt='宜和宜美定制家具全案设计'>
+                        </picture>
+                        <div class="content">
+                            <div>
+                                <div>
+                                    <h1>照片来自新浪微博@照相师_李晨</h1>
+                                    <h2>Held your hand, as if threads on your fingers around.</h2>
+                                </div>
+                            </div>
+                        </div></a>
+                </article>
+
+            </div>
+        </section>
+        <section class="work-list" >
+            <div class="inner" id="work-feed">
+
+                <article class="work-item " data-show="on-scroll" >
+                    <a href="">
+                        <picture>
+                            <img src='images/1-1604211K2050-L.jpg' border='0' width='120' height='120' alt='品町音乐餐厅品牌整合设计'>
+                        </picture>
+                        <div class="content">
+                            <div>
+                                <div>
+                                    <h1>照片来自新浪微博@照相师_李晨</h1>
+                                    <h2>Tears are words the heart can't say.</h2>
+                                </div>
+                            </div>
+                        </div></a>
+                </article>
+
+            </div>
+        </section>
+        <section class="work-list" >
+            <div class="inner" id="work-feed">
+
+                <article class="work-item " data-show="on-scroll" >
+                    <a href="">
+                        <picture>
+                            <img src='images/1-1603251TG70-L.jpg' border='0' width='120' height='120' alt='金晔食品品牌全案设计'>
+                        </picture>
+                        <div class="content">
+                            <div>
+                                <div>
+                                    <h1>照片来自新浪微博@照相师_李晨</h1>
+                                    <h2>My interest is in the future because I am going to spend the rest of my life there.</h2>
+                                </div>
+                            </div>
+                        </div></a>
+                </article>
+
+            </div>
+        </section>
+        <section class="work-list" >
+            <div class="inner" id="work-feed">
+
+                <article class="work-item " data-show="on-scroll" >
+                    <a href="">
+                        <picture>
+                            <img src='images/1-16030Q000290-L.jpg' border='0' width='120' height='120' alt='靠上酒'>
+                        </picture>
+                        <div class="content">
+                            <div>
+                                <div>
+                                    <h1>照片来自新浪微博@照相师_李晨</h1>
+                                    <h2>I don’t want to be in tears, but I am still in grief</h2>
+                                </div>
+                            </div>
+                        </div></a>
+                </article>
+
+            </div>
+        </section>
+        <section class="work-list" >
+            <div class="inner" id="work-feed">
+
+                <article class="work-item " data-show="on-scroll" >
+                    <a href="">
+                        <picture>
+                            <img src='images/1-16030H02A20-L.jpg' border='0' width='120' height='120' alt='柏世传恒-琥珀艺术家'>
+                        </picture>
+                        <div class="content">
+                            <div>
+                                <div>
+                                    <h1>照片来自新浪微博@照相师_李晨</h1>
+                                    <h2>I tell you hopeless grief is passionless.</h2>
+                                </div>
+                            </div>
+                        </div></a>
+                </article>
+
+            </div>
+        </section>
+        <section class="work-list" >
+            <div class="inner" id="work-feed">
+
+                <article class="work-item " data-show="on-scroll" >
+                    <a href="">
+                        <picture>
+                            <img src='images/1-1604191S6230-L.jpg' border='0' width='120' height='120' alt='云扳手全案品牌策划设计'>
+                        </picture>
+                        <div class="content">
+                            <div>
+                                <div>
+                                    <h1>电子商务有限公司</h1>
+                                    <h2>云扳手全案品牌策划设计</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+        <section class="work-list" >
+            <div class="inner" id="work-feed">
+
+                <article class="work-item " data-show="on-scroll" >
+                    <a href="#">
+                        <picture>
+                            <img src='images/1-1603241H1390-L.jpg' border='0' width='120' height='120' alt='果实设计部分LOGO合集'>
+                        </picture>
+                        <div class="content">
+                            <div>
+                                <div>
+                                    <h1>Mao Design</h1>
+                                    <h2>设计部分LOGO合集</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+    </div>
+    <a class="full-btn btn-outline" id="show-more" href="#" data-show="on-scroll">查看更多案例</a>
+
+
+
+    <div class="container-fluid">
+        <div class="row featurette qrcode">
+            <div class="col-lg-12" data-show="on-scroll">
+                <h2>品牌策略 × 品牌设计 × 品牌传播 </h2><br>
+                <h4>和陈哥一起播下品牌的种子</h4><br>
+                <h5><a href="#" class="btn-outline">查看更多服务</a></h5>
+            </div>
+        </div>
+    </div>
+</article>
+<aside>
+</aside>
+<footer class="footer">
+
+    <div class="nav">
+        <ul id="menu">
+            <li>公司名称</li>
+            <li>浙江省 杭州市 西湖区 文一西路 雅士苑</li>
+            <li>品牌垂询电话: 18758872730</li>
+            <li>MAIL: 740548980@qq.com  </li>
+            <li>QQ: 740548980</li>
+        </ul>
+    </div>
+    <div class="info">
+        <ul id="social-menu">
+
+
+            <li ><a href="#"  target="_blank" rel="external">f</a></li>
+            <li ><a href="#" target="_blank" rel="external">g</a></li>
+            <li ><a href="#" target="_blank" rel="external">h</a></li>
+            <li ><a href="#"  rel="external">U</a></li>
+
+
+        </ul>
+        <p class="copyright"><a href="#">Copyright © </a><br />design Co,.Ltd.<br>
+            All rights reserved. <br>
+            浙ICP备999999999号-1 </p>
+</footer>
+
+
+
+</body>
+</html>

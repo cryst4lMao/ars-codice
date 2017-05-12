@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game_163</title>
+    <link href="favicon.ico" rel="shortcut icon">
+    <!--<link rel="bookmark" href="favicon.ico" type="image/x-icon">-->
+    <script src="../随便玩玩/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+
+<p id="results"><b>Results: </b> </p>
+<form>
+    <select name="single">
+        <option>Single</option>
+        <option>Single2</option>
+    </select>
+    <select name="multiple" multiple="multiple">
+        <option selected="selected">Multiple</option>
+        <option>Multiple2</option>
+        <option selected="selected">Multiple3</option>
+    </select><br/>
+    <input type="checkbox" name="check" value="check1"/> check1
+    <input type="checkbox" name="check" value="check2" checked="checked"/> check2
+    <input type="radio" name="radio" value="radio1" checked="checked"/> radio1
+    <input type="radio" name="radio" value="radio2"/> radio2
+</form>
+<script>
+    $(document).ready(function () {
+//        $("#results").append("<tt>"+$("form").innerHTML+"</tt>");
+        var fields = $("select, :radio").serializeArray();
+        console.log(fields);
+        jQuery.each( fields, function(i, field){
+            $("#results").append(field.value + " ");
+        });
+    })
+</script>
+</body>
+</html>

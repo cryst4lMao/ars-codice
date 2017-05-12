@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navbar</title>
+    <style>
+        #nav{ position:relative; width: 500px; height: 36px; margin: 50px auto 0; background: url("images/nav_bg.gif") repeat-x; padding: 0 10px;}
+        .adorn1{ width: 6px; height: 36px; position: absolute; top: 0; left: 0; background: url("images/nav_bg.gif") no-repeat 0 -36px;}
+        .adorn2{ width: 6px; height: 36px; position: absolute; top: 0; right: 0; background: url("images/nav_bg.gif") no-repeat 0 -72px;}
+        .mul{ margin: 0; padding: 0;}
+        .mul li{ float: left; height: 36px; padding: 0 3px 0 7px; position: relative; cursor:pointer;}
+        li{ list-style: none;}
+        .mul .normal{ float: left; height: 36px; line-height: 36px; color: #ffffff;}
+        .mul .normal span{ padding: 0 20px; height: 36px; float: left;}
+        .line{ background: url("images/active_bg.gif") no-repeat 0 -90px;}
+        .mul .active{
+            float: left;
+            height: 36px;
+            line-height: 36px;
+            color: #ffffff;
+            background: url("images/active_bg.gif") no-repeat 0 -38px;
+            }
+        .mul .active span{
+            padding: 0 20px;
+            height: 36px;
+            float: left;
+            background: url("images/active_bg.gif") no-repeat 0 7px;
+        }
+        #nav .w1{
+            height: 27px;
+            padding: 0 8px;
+            background: url("images/nav_bg.gif") no-repeat 0 -50px;
+        color}
+    </style>
+</head>
+<body>
+<div id="nav">
+    <div class="adorn1"></div>
+    <div class="adorn2"></div>
+    <ul class="mul">
+        <li><a class=" active"><span>首页</span></a>
+            <span class="w1">
+                <span class="arrows"></span>
+            <span class="decorate1"></span>
+            <span class="decorate2"></span>
+            <a href="http://www.baidu.com"><span>最近更新</span></a>
+            <a href="#"><span>活动</span></a>
+            <a href="#"><span>报名试听</span></a>
+            <a href="#"><span>学员反馈</span></a>
+            </span>
+
+        </li>
+        <li class="line"><a class="normal"><span>关于我们</span></a>
+            <span class="w1">
+                <span class="arrows"></span>
+            <span class="decorate1"></span>
+            <span class="decorate2"></span>
+            <a href="http://www.baidu.com"><span>最近更新</span></a>
+            <a href="#"><span>活动</span></a>
+            <a href="#"><span>报名试听</span></a>
+            <a href="#"><span>学员反馈</span></a>
+            </span>
+        <li class="line"><a class="normal"><span>作品</span></a>
+            <<span class="w1">
+                <span class="arrows"></span>
+            <span class="decorate1"></span>
+            <span class="decorate2"></span>
+            <a href="http://www.baidu.com"><span>最近更新</span></a>
+            <a href="#"><span>活动</span></a>
+            <a href="#"><span>报名试听</span></a>
+            <a href="#"><span>学员反馈</span></a>
+            </span>
+        <li class="line"><a class="normal"><span>博客</span></a>
+            <span class="w1">
+                <span class="arrows"></span>
+            <span class="decorate1"></span>
+            <span class="decorate2"></span>
+            <a href="http://www.baidu.com"><span>最近更新</span></a>
+            <a href="#"><span>活动</span></a>
+            <a href="#"><span>报名试听</span></a>
+            <a href="#"><span>学员反馈</span></a>
+            </span>
+    </ul>
+    <script>
+        var oNav = document.getElementById('nav');
+        var oLi = oNav.getElementsByTagName('li');
+//        alert(oLi.length);
+//        var oSpan = oNav.getElementsByTagName('span')[1];
+        var i = 0;
+        var oA = [];
+        var oSpan = [];
+        var oTimer = null;
+
+        for(i=0; i<oLi.length; i++) {
+            oA.push(oLi[i].getElementsByTagName('a')[0]);
+            oSpan.push(oLi[i].getElementsByTagName('span')[1]);
+        }
+        for(i=0; i<oLi.length; i++) {
+            oA[i].index = i;
+            oA[i].onmouseover = function(){
+                for(i=0; i<oA.length; i++) {
+                    oA[i].className = 'normal';
+                    oSpan[i].style.display = 'none';
+                }
+                oA[this.index].className = 'active';
+                oSpan[this.index].style.display = 'block';
+
+            };
+            oA[i].onmouseout = function() {
+                var indexTwo = this.index;
+                oTimer = setTimeout(function(){
+                    oSpan[indexTwo].style.display = 'none';
+                    oTimer = null;
+                },1000);
+            };
+
+            oSpan[i].index = i;
+            oSpan[i].onmouseover = function() {
+                if(oTimer) {
+                    clearTimeout(oTimer);
+                    oTimer = null;
+                }
+            };
+            oSpan[i].onmouseout = function() {
+                var indexTwo = this.index;
+                oTimer = setTimeout(function(){
+                    oSpan[indexTwo].style.display= 'none';
+                    oTimer = null;
+                },1000);
+            }
+
+        }
+    </script>
+</div>
+</body>
+</html>

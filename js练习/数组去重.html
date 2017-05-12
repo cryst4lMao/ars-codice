@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+    <script src="jQuery/滚动条/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<script>
+    var arra = new Array("as", 3, 4, "4");
+//    arra[0] = "1";
+//    arra[1] = "2";
+//    arra[2] = "cook";
+//    arra[3] = "2";
+//    arra[4] = "cook";
+    var arrLength = arra.length;
+    document.write("原始数组元素个数:" + arrLength + "<br>");
+    for (var i=0; i<arrLength; i++){
+        document.write(arra[i]+"<br>");
+    }
+
+    function unique(arr) {
+        var result = [];
+        var hash = {};
+        for (var i=0, elem; (elem = arr[i])!=null; i++){
+            if (!hash[elem]){
+                result.push(elem);
+                hash[elem] = true;
+            }
+        }
+        return result;
+    }
+    var s_res = unique(arra);
+    var s_resLength = s_res.length;
+    document.write("去重后的数字个数:" + s_resLength + "<br>");
+    for (var j=0; j<s_resLength; j++){
+        document.write(s_res[j] + "<br>");
+    }
+</script>
+<script>
+//    var arrAY = new Array( "asd",  "asd");
+//    for (var i=0; i< arrAY.length; i++){
+//        console.log(arrAY[i]);
+//    }
+//    function unique() {
+//        var res = [];
+//        var hash = {};
+//        for(var i=0, elem; (elem = arrAY[i])!=null; i++){
+//            if(!hash[elem]){
+//                res.push(elem);
+//                hash[elem] = true;
+//            }
+//        }
+//        return res;
+//    }
+//    var s_res = unique(arrAY);
+//    for(var j=0; j<s_res.length; i++){
+//        document.writeln(s_res[i])
+//    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	var myRe = /d(b+)d/g;
+	var myArray = myRe.exec("cdbbdbsbz");
+
+	var myRe2 = new RegExp('d(b+)d','g');
+	var myArray2 = myRe2.exec("cdbbdbsbz");
+
+	function test(email){
+		var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		var tar = reg.test(email);
+		console.log(tar);
+		if(tar){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	test("740548980@qq.com");
+</script>
+</body>
+</html>

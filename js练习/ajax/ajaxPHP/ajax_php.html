@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    function showInit(str){
+        var xmlhttp;
+        if(str.length == 0){
+            document.getElementById("oTxt").innerHTML = "";
+            return;
+        }
+        if(window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("GET","./response.php?q="+str,true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+            {
+                document.getElementById("oTxt").innerHTML = xmlhttp.responseText;
+            }
+        }
+
+    }
+</script>
+<form action="">
+    <input type="text" id="txt1" onkeyup="showInit(this.value);"/>
+</form>
+
+<p>建议<span id="oTxt"></span></p>
+</body>
+</html>

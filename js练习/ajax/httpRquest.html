@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var xmlhttp;
+    function loadXML(url){
+        xmlhttp = null;
+        if(window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        if(xmlhttp != null){
+            xmlhttp.open("GET",url,true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = stateChange;
+        }else{
+            alert("Your browser does not support XMLHTTP");
+        }
+        function stateChange(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById('p1').innerHTML = "This file was last modified on:"+xmlhttp.getResponseHeader('last-modified');
+            }else{
+                alert("problem data:" + xmlhttp.statusText);
+            }
+        }
+
+    }
+</script>
+<p id="p1">The getResponseHeader() function returns a header from a resource.
+    Headers contain file information like length,
+    server-type, content-type, date-modified, etc.</p>
+<input type="button" value="getResponseHeader" onclick="loadXML('./1.txt');">
+</body>
+</html>

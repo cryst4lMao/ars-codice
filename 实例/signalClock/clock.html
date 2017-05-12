@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * { padding: 0; margin: 0; }
+        li { list-style: none; }
+        body { background: #29033e; }
+        img { border: none; }
+
+        .date { width: 520px; height: 520px; background: url(images/bg.png); margin: 50px auto 0; position: relative; }
+        .date h2 { text-align: center; padding: 80px 0 30px; }
+        .year { text-align: center; padding-top: 30px; }
+        .time { text-align: center; padding: 30px 0; }
+        .url { text-align: center; position: absolute; bottom: 40px; left: 100px; }
+        .date img { position: relative; }
+        .pos2 { margin-left: 10px; }
+        .num { width: 25px; }
+        .num2 { width: 38px; }
+    </style>
+    <script type="text/javascript" src="clock.js"></script>
+</head>
+<body>
+<!--<button id="btn1">点击刷新</button>-->
+<div id="clock" class="date">
+
+    <div class="year">
+        <img class="num" src="images/0.png" alt="0"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img src="images/year.png" alt="year"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img src="images/month.png" alt="month"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img src="images/seven.png" alt="seven"/>
+    </div>
+    <div class="time">
+        <img class="num" src="images/0.png" alt="0"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img src="images/sign.png" alt="sign"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img src="images/sign.png" alt="sign"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img class="num" src="images/0.png" alt="0"/>
+        <img class="pos2" src="images/week.png" alt="week"/>
+        <img class="num2" src="images/one.png" alt="one"/>
+    </div>
+</div>
+<!--<script>-->
+<!--//    var timer = null;-->
+<!--//    var aNow = null;-->
+<!--//-->
+<!--//    var g_aImg = [];-->
+<!--//    var g_oImgWeek = null;-->
+<!--//    var g_aWeekName-->
+
+    <!--function toDouble(num) {-->
+        <!--if(num<10) {-->
+            <!--return '0'+num;-->
+        <!--}else {-->
+            <!--return ''+num;-->
+        <!--}-->
+    <!--}-->
+    <!--function toChinese(day) {-->
+        <!--switch(day)-->
+        <!--{-->
+            <!--case 0:-->
+                <!--return '星期日';-->
+            <!--case 1:-->
+                <!--return '星期一';-->
+            <!--case 2:-->
+                <!--return '星期二';-->
+            <!--case 3:-->
+                <!--return '星期三';-->
+            <!--case 4:-->
+                <!--return '星期四';-->
+            <!--case 5:-->
+                <!--return '星期五';-->
+            <!--case 6:-->
+                <!--return '星期六';-->
+        <!--}-->
+    <!--}-->
+    <!--window.onload = function() {-->
+        <!--var oBtn = document.getElementById('btn1');-->
+        <!--var aImg = document.getElementsByTagName('img');-->
+        <!--var clock = document.getElementById('clock');-->
+        <!--var year = clock.getElementsByClassName('years');-->
+        <!--var i = 0;-->
+        <!--function update() {-->
+            <!--var oDate = new Date();-->
+            <!--var str = toDouble(oDate.getHours()) + toDouble(oDate.getMinutes()) + toDouble(oDate.getSeconds());-->
+<!--//            alert(str);-->
+
+            <!--for(i=0; i<aImg.length;i++) {-->
+               <!--aImg[i].src = 'images/'+str.charAt(i)+'.png';-->
+            <!--}-->
+        <!--}-->
+        <!--setInterval(update,1000);-->
+        <!--update();-->
+        <!--var oDate = new Date();-->
+<!--//        var str = oDate.getHours() + '点' + oDate.getMinutes() + '分' + oDate.getSeconds() + '秒';-->
+        <!--var str = oDate.getFullYear() + '年' + (oDate.getMonth()+1) + '月' + oDate.getDate() + '日' + toChinese(oDate.getDay());-->
+        <!--alert('现在是:' + str);-->
+    <!--};-->
+<!--</script>-->
+</body>
+</html>

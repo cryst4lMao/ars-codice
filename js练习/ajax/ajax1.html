@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <style>
+        #div1{ width: 200px; height: 250px; background: yellow; position: relative;}
+        .oa{width: 50px; height: 30px; background: yellowgreen;}
+    </style>
+    <script src="ajax.js" type="text/javascript"></script>
+</head>
+<body>
+<!--<input type="button" value="点我点我" id="btn1" />-->
+<!--<input type="button" value="file1" id="btn1"/>-->
+<!--<input type="button" value="file2" id="btn2"/>-->
+<!--<input type="button" value="file3" id="btn3"/>-->
+<!--<div id="div1"></div>-->
+<ul id="oul"></ul>
+<a class="oa" href="#">1</a>
+<a class="oa" href="#">2</a>
+<a class="oa" href="#">3</a>
+<script>
+//    window.onload = function() {
+//        var oBtn = document.getElementsByTagName('input');
+//        var oDiv = document.getElementById('div1');
+//        for(var i=0; i<oBtn.length; i++) {
+//            oBtn[i].index = i;
+//            oBtn[i].onclick = function() {
+////                alert(this.index+1+'.txt'+new Date().getTime());
+//                ajax(this.index+1+'.txt?t='+new Date().getTime(), function(str){
+//                    oDiv.innerHTML = str;
+//                });
+//            }
+//        }
+//    };
+//    window.onload = function() {
+//        var oBtn = document.getElementById('btn1');
+//        oBtn.onclick = function() {
+//            ajax('abc.txt', function(str){
+//                alert(str)
+//            });
+//        }
+//    };
+    window.onload = function() {
+//        var aUl = document.getElementById('oul');
+        var aUl = document.getElementsByTagName('ul')[0];
+        var aBtn = document.getElementsByTagName('a');
+
+        for(var i=0; i<aBtn.length; i++) {
+            aBtn[i].index = i;
+            aBtn[i].onclick = function() {
+                ajax('page'+(this.index+1)+'.txt', function(str){
+//                    alert(str.length);
+                    var aData = eval(str);
+//                    alert(eval(str).length);
+                    for(var i=0; i<aData.length; i++) {
+                        var oLi = document.createElement('li');
+//                        alert(aData[i].user+':'+aData[i].pass);
+                        oLi.innerHTML = '<strong>'+aData[i].user+'</strong><i>'+aData[i].pass+'</i>';
+//                        alert(oLi.innerHTML);
+                        aUl.appendChild(oLi);
+//                        alert("safd");
+                    }
+                });
+            }
+        }
+    };
+</script>
+</body>
+</html>

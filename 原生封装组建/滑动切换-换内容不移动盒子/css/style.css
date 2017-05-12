@@ -1,0 +1,199 @@
+@charset "utf-8";
+html,body{
+	padding: 0;
+	margin: 0;
+}
+ul, li{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.con{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+.bg1{
+	background: linear-gradient(#380050 85%, #b273cc);
+	height: 100%;
+}
+.bg2{
+	background: linear-gradient(rgb(41,0,138) 65%,rgb(154,134,252));
+	height: 100%;
+}
+.bg3{
+	background: linear-gradient(rgb(254,130,36) 55%,rgb(230,221,100));
+	height: 100%;
+}
+.bg4 {
+	background: linear-gradient(rgb(15,145,252) 30%,rgb(187,248,247) 70%,rgb(187,248,247));
+	height: 100%;
+}
+.bg5{
+	background: linear-gradient(rgb(36,50,169) 0%,rgb(3,15,40) 40%,rgb(3,15,40) 100%);
+	height: 100%;
+}
+.nav-tit{
+	color: #ffff00;
+	width: calc(100% - 8px);
+	margin: 0 auto;
+	line-height: 12px;
+	text-align: center;
+}
+.nav-tit li{
+	display: inline-block;
+	cursor: pointer;
+	width: calc(20% - 9.5px);
+	height: 12px;
+	background: #fff;
+	text-indent: -999px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	opacity: 0.65;
+}
+.nav-tit li.on{
+	opacity: 1;
+}
+.action-z0{
+	/*zoom: 1.04167;*/
+	bottom: 0;
+	height: auto;
+	position: absolute;
+}
+.action-area{
+	position: absolute;
+	height: 300px;
+	width: 360px;
+	bottom: 0;
+}
+.action-area .earth1{
+	position: absolute;
+	-webkit-animation: arrow 20s linear infinite;
+	-o-animation: arrow 20s linear infinite;
+	animation: arrow 20s linear infinite;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 62.5%;
+}
+.action-area .earth-q{
+	position: absolute;
+	-webkit-animation: arrow2 450ms linear;
+	-o-animation: arrow2 450ms linear;
+	animation: arrow2 450ms linear;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 62.5%;
+}
+.action-person1{
+	background: url(../imgs/EarthDay_1.png) no-repeat;
+	animation: play 3s steps(74) infinite;
+	width: 360px;
+	height: 300px;
+	bottom: 0;
+}
+.action-person2{
+	background: url(../imgs/EarthDay_2.png) no-repeat;
+	animation: play2 4s steps(96) infinite;
+	width: 360px;
+	height: 300px;
+	bottom: 0;
+}
+.action-person3{
+	background: url(../imgs/EarthDay_3.png) no-repeat;
+	animation: play3 3s steps(12) infinite;
+	width: 360px;
+	height: 300px;
+	bottom: 0;
+}
+.action-person4{
+	background: url(../imgs/EarthDay_4.png) no-repeat;
+	animation: play4 3s steps(32) infinite;
+	width: 360px;
+	height: 300px;
+	bottom: 0;
+}
+.action-smile1{
+	position: absolute;
+	background: url(../imgs/Face_1.png) no-repeat;
+	animation: face 3s steps(49) infinite;
+	width: 360px;
+	height: 68px;
+	bottom: 0;
+}
+.action-smile2{
+	position: absolute;
+	background: url(../imgs/Face_2.png) no-repeat;
+	animation: face2 3s steps(96) infinite;
+	width: 360px;
+	height: 68px;
+	bottom: 0;
+}
+.action-smile3{
+	position: absolute;
+	background: url(../imgs/Face_3.png) no-repeat;
+	animation: face2 3s steps(96) infinite;
+	width: 360px;
+	height: 68px;
+	bottom: 0;
+}
+.action-smile4{
+	position: absolute;
+	background: url(../imgs/Face_4.png) no-repeat;
+	animation: face3 3s steps(64) infinite;
+	width: 360px;
+	height: 68px;
+	bottom: 0;
+}
+@keyframes face {
+	100%{
+		background-position: -17640px;
+	}
+}
+@keyframes face2 {
+	100%{
+		background-position: -34560px;
+	}
+}
+@keyframes face3 {
+	100%{
+		background-position: -23040px;
+	}
+}
+@keyframes play {
+	100%{
+		background-position: -26640px;
+	}
+}
+@keyframes play2 {
+	100%{
+		background-position: -34560px;
+	}
+}
+@keyframes play3 {
+	100%{
+		background-position: -4320px;
+	}
+}
+@keyframes play4 {
+	100%{
+		background-position: -11520px;
+	}
+}
+@keyframes arrow {
+	100%{
+		-webkit-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+	}
+}
+@keyframes arrow2 {
+
+	100%{
+		-webkit-transform: rotate(-360deg);
+		transform: rotate(-180deg);
+	}
+}

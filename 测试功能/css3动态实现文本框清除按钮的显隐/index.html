@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3动态实现文本框清除按钮的显隐</title>
+    <style>
+        .input{
+            padding:  5px;
+            margin: 0;
+            border: 1px solid #000;
+        }
+        .clear{
+            display: none;
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: url("clear.png");
+        }
+
+        .input:valid + .clear{
+            margin-left: -19px;
+            display: inline-block;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<input class="input" required><a class="clear"></a>
+<input class="input" type="search">
+<input class="input">
+
+</body>
+</html>

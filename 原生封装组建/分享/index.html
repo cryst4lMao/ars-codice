@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="index.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<script>
+	share({
+		dom:document.getElementById('box'), //指定结构生成的盒子。
+		url:'http://maopeijiong.site/',
+		title:'不积硅步无以至千里',
+		desc:'图片的蔑视',
+		images:'http://maopeijiong.site/wp-content/themes/lifestyle/images/header.jpg',
+		qrcode:'',
+		target:'blank',    //设置二维码的显示方式，blank窗口居中显示，selef,当前位置显示。
+		qqzone:{ //单独配置qq空间的分享参数。
+			summary:'Wikipedia: 散列表（Hash table，也叫哈希表），是根据关键字（Key value）而直接访问在内存存储位置的数据结构。 ' +
+			'也就是说，它通过计算一个关于键值的函数，将所需查询的数据映射到表中一个位置来访问记录，这加快了查找速度。' +
+			' 这个映射函数称做散列函数，存放记录的数组称做散列表哈希表、二叉树、链表是最常见的数据结构，涵盖了程序员面试和笔试中几乎所有的数据结构相关问题。' +
+			' 本文中用C++来实现一个简单的哈希表，帮助理解哈希表是怎样运作的。为了简化代码并突出逻辑，采用简单的除余数作为散列函数，用线性探测来处理碰撞。',
+			site:'http://www.xxx.com'
+		}
+	});
+</script>
+</body>
+</html>

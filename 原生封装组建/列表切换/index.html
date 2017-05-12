@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>左右轮播切换</title>
+	<style>
+		body{padding:0;}
+		ul, li{list-style: none;padding: 0; margin: 0;}
+		ul{height: 100%  ;}
+		.con_area{    display: inline-block;
+			border: 1px solid #888888;
+			height: 500px;}
+		#container{       position: relative;
+			margin: 0 20px;
+		}
+		.scroll-content{    position: relative;
+			width: 450px;
+			height: 470px;
+			text-align: center;
+			overflow: hidden;
+		}
+
+		.arrow{    position: absolute;
+
+			background: url(./imgs/arr.gif) no-repeat;
+			width: 20px;
+			height: 128px;
+			background-color: #f0f8fc;
+		cursor: pointer;}
+		.arrow-left{    background-position: 0 0;top: 200px;
+			left: -20px;}
+		.arrow-left:hover{background-position: -40px 0;background-color: #3d9ccc;}
+		.arrow-right{background-position: -20px 0;
+			top: 200px;
+			right: -20px;}
+		.arrow-right:hover{background-position: -60px 0;background-color: #3d9ccc;}
+		.scroll-list{position: absolute;
+			width: 450px;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;}
+		.pointBox{
+			text-align: center;
+			width: 100%;
+			height: 30px;
+		}
+		.pointBox .pot{
+			width: 12px;
+			height: 12px;
+			display: inline-block;
+			background: #9d9d9d;
+			margin: 9px 4px;
+			border-radius: 6px;
+		}
+		.pointBox .pot.on{
+			background: #5e5e5e;
+		}
+	</style>
+</head>
+<body>
+<div class="con_area">
+	<div id="container">
+
+	</div>
+</div>
+<script src="superSlider.js"></script>
+<script>
+	var list = [{
+		con: "这里是第一屏这里是第一屏这里是第一屏这里是第一屏这里是第一屏这里是第一屏"
+	},{
+		con: "这里是第二屏这里是第二屏这里是第二屏这里是第二屏这里是第二屏这里是第二屏"
+	},{
+		con: "这里是第三屏这里是第三屏这里是第三屏这里是第三屏这里是第三屏这里是第三屏"
+	},{
+		con: "这里是第四屏这里是第四屏这里是第四屏这里是第四屏这里是第四屏这里是第四屏"
+	}];
+
+	slider({
+		'dom': document.getElementById('container'),
+		'list': list
+	})
+</script>
+</body>
+</html>

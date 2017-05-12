@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>地球小贴士</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="con" id="container">
+	<div id="bg" class="bg1">
+		<ul id="nav-tit" class="nav-tit">
+			<li data-index="1" class="nav1 on">1</li>
+			<li data-index="2" class="nav2">2</li>
+			<li data-index="3" class="nav3">3</li>
+			<li data-index="4" class="nav4">4</li>
+			<li data-index="5" class="nav5">5</li>
+		</ul>
+		<div id="share" style="visibility: hidden;">
+			<span>分享</span>
+		</div>
+		<div id="zone" class="action-z0">
+			<div id="action-area" class="action-area">
+				<div id="action-person" class="action-person1"></div>
+				<img id="earth" class="earth1" src="imgs/earftest.png" alt="旋转的地球">
+				<div id="action-smile" class="action-smile1"></div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+<script src="js/slider.js"></script>
+<script defer>
+	window.onload = function () {
+		var zoomVal = (window.innerWidth / 360).toFixed(4);
+		zoomVal = zoomVal * 1;
+		console.log(zoomVal + typeof(zoomVal));
+		document.getElementById('zone').style.zoom = zoomVal;
+	};
+
+	slider({
+		'dom': document.getElementById('container')
+	});
+</script>
+</body>
+</html>

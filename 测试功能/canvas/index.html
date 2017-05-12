@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas 绘图</title>
+</head>
+<body>
+<canvas id="canvas" width="800px" height="800px" style="border: 1px solid #000;">浏览器不支持canvas</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+
+        context.beginPath();
+        context.moveTo(100,350);
+        context.lineTo(500,350);
+        context.lineTo(500,200);
+        context.lineTo(700,400);
+        context.lineTo(500,600);
+        context.lineTo(500,450);
+        context.lineTo(100,450);
+        context.lineTo(100,350);
+        context.closePath();
+
+        context.fillStyle = "yellow";
+        context.fill();
+
+        context.lineWidth = 10;
+        context.strokeStyle = "#058";
+        context.stroke();
+
+    }
+</script>
+</body>
+</html>

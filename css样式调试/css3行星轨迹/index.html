@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行星轨迹图</title>
+    <style>
+        *{ margin: 0; padding: 0; }
+        body{ background: black; }
+        .galaxy{ width: 1300px; height: 1300px; position: relative; margin: 0 auto; }
+        .galaxy div{ position: absolute; }
+        div[class*='track']{ border: 1px solid #fff; margin-top: -5px; margin-left: -5px; }
+        /*div[class!='track']{ border: 1px solid #fff;}*/
+        .sun{ background: url("images/sun.png") no-repeat top left; width: 100px; height: 100px; left: 600px; top: 600px;}
+        .mercury{ background: url("images/2.png") no-repeat top left; width: 50px; height: 50px; left: 700px; top: 625px; animation: rotation 2.4s linear infinite; transform-origin: -50px 25px;}
+        .mercury-track{ width: 150px; height: 150px; border-radius: 75px; top: 575px; left: 575px;}
+        .venus{ background: url("images/3.png") no-repeat top left; width: 60px; height: 60px; left: 750px; top: 620px; animation: rotation 3.5s linear infinite; transform-origin: -100px 30px;}
+        .venus-track{ width: 260px; height: 260px; border-radius: 130px; top: 520px; left: 520px;}
+        .earth{ background: url("images/4.png") no-repeat top left; width: 60px; height: 60px; left: 810px; top: 620px; animation: rotation 4.5s linear infinite; transform-origin: -160px 30px;}
+        .earth-track{ width: 380px; height: 380px; border-radius: 190px; left: 460px; top: 460px;}
+        .mars{ background: url("images/5.png") no-repeat top left; width: 50px; height:50px; left: 870px; top: 625px;}
+
+        .jupiter{ background: url("images/6.png") no-repeat top left; width: 80px; height: 80px; left: 920px; top: 610px;}
+        .saturn{ background: url("images/7.png") no-repeat top left; width: 120px; height: 80px; left: 1000px; top: 610px;}
+        .uranus{ background: url("images/8.png") no-repeat top left; width: 80px; height: 80px; left: 1120px; top: 610px;}
+        .pluto{ background: url("images/9.png") no-repeat top left; width: 70px; height: 70px; left: 1200px; top: 615px;}
+        @keyframes rotation {
+            to{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="galaxy">
+    <div class="sun"></div>
+    <div class="mercury-track"></div>
+    <div class="mercury"></div>
+    <div class="venus-track"></div>
+    <div class="venus"></div>
+    <div class="earth-track"></div>
+    <div class="earth"></div>
+    <div class="mars-track"></div>
+    <div class="mars"></div>
+    <div class="jupiter-track"></div>
+    <div class="jupiter"></div>
+    <div class="saturn-track"></div>
+    <div class="saturn"></div>
+    <div class="uranus-track"></div>
+    <div class="uranus"></div>
+    <div class="pluto-track"></div>
+    <div class="pluto"></div>
+</div>
+</body>
+</html>

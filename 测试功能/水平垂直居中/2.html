@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.m-demo {
+			margin: 50px;
+			width: 600px;
+			height: 600px;
+			border: 1px solid #000000;
+		}
+
+		.m-demo .secont {
+			width: 200px;
+			height: 200px;
+			background-color: #FF0000;
+		}
+
+		.g-horCtrHtml-1 {
+			text-align: center;
+			font-size: 0;
+			letter-spacing: -0.307em;
+			*letter-spacing: normal;
+			*word-spacing: -1px;
+		}
+
+		.g-horCtrHtml-1 .empty {
+			width: 100%;
+			height: 50%;
+			margin-bottom: -100px; /*配置参数，内容元素高度的一半*/
+		}
+
+		.g-horCtrHtml-1 .cnt {
+
+			display: inline-block;
+			*letter-spacing: normal;
+
+			*word-spacing: normal;
+			*display: inline;
+			*zoom: 1;
+		}
+	</style>
+</head>
+<body>
+<div class="m-demo g-horCtrHtml-1">
+	<div class="empty"><!--空的内容--></div>
+	<div class="secont cnt">实际内容</div>
+</div>
+</body>
+</html>

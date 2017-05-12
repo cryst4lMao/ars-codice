@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>label切换内容</title>
+	<style>
+		.container{width: 800px;height: 250px;margin: 0 auto;position: relative;}
+		.tab{width: 25%;float: left;margin-right: -1px;box-sizing: border-box;}
+		.tab .testTabLabel{text-align: center;display: block;background: #e2e2e2;height: 24px;padding: 5px 0;border: 1px solid #ccc;}
+		.tab .test-radio, .tab .testTabCon{position: absolute;left: -999em;}
+		.test-radio:checked ~ .testTabLabel{border-bottom: 1px solid #fff;background: #fff;position: relative;z-index: 1;}
+		.test-radio:checked ~ .testTabCon{left: 0;border: 1px solid #ccc;border-top: 0;width: 763px;padding: 2em 1em;}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="tab">
+		<input type="radio" id="testTabOne" class="test-radio" name="tab" checked="checked"/>
+		<label class="testTabLabel" for="testTabOne">选项1</label>
+		<div class="testTabCon">
+			<p>第一张选项卡的内容</p>
+		</div>
+	</div>
+	<div class="tab">
+		<input type="radio" id="testTabTwo" class="test-radio" name="tab"/>
+		<label class="testTabLabel" for="testTabTwo">选项1</label>
+		<div class="testTabCon">
+			<p>第二张选项卡的内容</p>
+		</div>
+	</div>
+	<div class="tab">
+		<input type="radio" id="testTabThree" class="test-radio" name="tab"/>
+		<label class="testTabLabel" for="testTabThree">选项1</label>
+		<div class="testTabCon">
+			<p>第三张选项卡的内容</p>
+		</div>
+	</div>
+	<div class="tab">
+		<input type="radio" id="testTabFour" class="test-radio" name="tab"/>
+		<label class="testTabLabel" for="testTabFour">选项1</label>
+		<div class="testTabCon">
+			<p>第四张选项卡的内容</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

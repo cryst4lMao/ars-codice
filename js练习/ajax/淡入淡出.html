@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #img {opacity: 0.3;}
+    </style>
+</head>
+<body>
+<script>
+    var timer = null;
+    var alpha = 30;
+    function startMove(iTarget) {
+        var mImg = document.getElementById('img');
+            clearInterval(timer);
+            timer = setInterval(function(){
+                var iSpeed = 0;
+                if(alpha<iTarget)
+                {
+                    iSpeed = 1;
+                } else
+                {
+                    iSpeed = -1;
+                }
+                if(alpha == iTarget)
+                {
+                    clearInterval(timer);
+                } else
+                {
+                    alpha += iSpeed;
+                    mImg.style.opacity = alpha/100;
+                    document.title = alpha;
+                }
+            },30);
+    }
+    window.onload = function() {
+        var mImg = document.getElementById('img');
+        mImg.onmouseover = function() {
+            startMove(100);
+        };
+        mImg.onmouseout = function() {
+            startMove(30);
+        };
+    };
+</script>
+<img id="img" src="pp.jpg" />
+</body>
+</html>

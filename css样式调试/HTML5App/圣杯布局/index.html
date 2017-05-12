@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设备布局</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        /*body{min-width: 550px;}*/
+        #footer,#header{background: #2b669a;height: 50px;display: block;}
+        #container{padding-left: 200px;padding-right: 200px;background: #fff;height: 80px;text-align: center;line-height: 80px;}
+        #container .column{float: left;position: relative;}
+        #center{width: 100%;height: 80px;background-color: #00CCCC;}
+        #left{width: 200px;background: #4cae4c;margin-left:-200px;height: 80px;}
+        #right{width: 200px;background: #4cae4c;margin-right: -200px;height: 80px;}
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div id="container">
+    <div id="left" class="column">左边</div>
+    <div id="center" class="column">中间</div>
+    <div id="right" class="column">右边</div>
+</div>
+<div id="footer"></div>
+</body>
+</html>

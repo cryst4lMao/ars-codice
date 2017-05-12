@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		body{
+			background: #b8d7e9;
+		}
+		.container{
+			height: 640px;
+		}
+		.box{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			overflow: hidden;
+			background: #ffffff;
+			width: 320px;
+			height: 320px;
+		}
+		.box_one{transform: rotate(45deg) translate(-390px,180px);background: gray;}
+		.box_two{transform: rotate(45deg) translate(-390px,-150px);background: gray;}
+		.box_three{transform: rotate(45deg) translate(-60px,180px);background: gray;}
+		.box_four{transform: rotate(45deg) translate(-60px,-150px);background: gray;}
+		.bor{position: absolute; overflow: hidden;background: red;}
+		.border-t{right: 8px;top: 8px;left: 8px;height: 3px;}
+		.border-b{right: 8px;bottom: 8px;left: 8px;height: 3px;}
+		.border-l{right: 8px;bottom: 8px;top: 8px;width: 3px;}
+		.border-r{left: 8px;bottom: 8px; top: 8px; width: 3px;}
+		.box:hover .border-t{right: 100%; transition: all 1s ease;}
+		.box:hover .border-b{left: 100%; transition: all 1s ease;}
+		.box:hover .border-l{bottom: 100%; transition: all 1s ease;}
+		.box:hover .border-r{top: 100%; transition: all 1s ease;}
+
+
+
+
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="box box_one">
+		<span class="bor border-t"></span>
+		<span class="bor border-b"></span>
+		<span class="bor border-l"></span>
+		<span class="bor border-r"></span>
+	</div>
+	<div class="box box_two">
+		<span class="bor border-t"></span>
+		<span class="bor border-b"></span>
+		<span class="bor border-l"></span>
+		<span class="bor border-r"></span>
+	</div>
+	<div class="box box_three">
+		<span class="bor border-t"></span>
+		<span class="bor border-b"></span>
+		<span class="bor border-l"></span>
+		<span class="bor border-r"></span>
+	</div>
+	<div class="box box_four">
+		<span class="bor border-t"></span>
+		<span class="bor border-b"></span>
+		<span class="bor border-l"></span>
+		<span class="bor border-r"></span>
+	</div>
+</div>
+</body>
+</html>

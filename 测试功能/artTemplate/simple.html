@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>title</title>
+	<script src="template.js"></script>
+</head>
+<body>
+	<div id="content"></div>
+	<script id="test" type="text/html">
+		<h1>{{title}}</h1>
+		<ul>
+			{{each list as value i}}
+			<li>索引{{i+1}}: {{value}}</li>
+			{{/each}}
+		</ul>
+	</script>
+	<script>
+		var data = {
+			title: "title",
+			list: ["art", "music", "chinese"]
+		};
+		var htmlCon = template('test', data);
+		document.getElementById('content').innerHTML = htmlCon;
+	</script>
+</body>
+</html>

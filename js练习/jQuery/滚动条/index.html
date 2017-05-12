@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回顶部的第一种方法</title>
+    <style>
+        .top{ display:block; width: 50px; height: 50px; color: #ffffff; background: #cdcdcd; text-align: center; font-size: 15px; line-height: 50px; text-decoration: none; position: fixed; bottom: 50px; right: 50px;display: none;}
+        .top:hover{ background: green;}
+    </style>
+    <script src="jquery-1.8.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+<a href="javascript:;" class="top">↑</a>
+<script type="text/javascript">
+    for(var i=0; i<100; i++){
+        document.writeln("<h2>"+i+"</h2>");
+    }
+
+    $(function(){
+
+
+        $(window).scroll(function(){
+            var t=$(this).scrollTop();
+            if(t>200){
+                $(".top").fadeIn();
+            }else{
+                $(".top").fadeOut();
+            }
+
+        });
+
+
+
+        $(".top").click(function(){
+
+            $("body,html").stop().animate({scrollTop:0},300)
+        })
+
+
+
+    })
+
+
+</script>
+
+</body>
+</html>

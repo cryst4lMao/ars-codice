@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jstest</title>
+</head>
+<body>
+<script>
+    function unique(arr){
+        var res = [], hash = {};
+        for (var i=0; i<arr.length; i++){
+            if (!hash[arr]){
+                res.push(arr);
+                hash[arr] = true;
+            }
+        }
+        return res;
+    }
+    var array = [0,1,2,3,4,5,2,3,4];
+    var result = unique(array);
+    console.log(result);
+</script>
+</body>
+</html>

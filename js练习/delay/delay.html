@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delay</title>
+    <style>
+        #div1{ width: 300px; height: 30px; background: #29033e; margin: 10px;}
+        #div2{ width: 200px; height: 30px; background: darkred; margin: 10px; display: none;}
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<script type="text/javascript">
+    window.onload = function() {
+        var odiv1 = document.getElementById('div1');
+        var odiv2 = document.getElementById('div2');
+
+
+        odiv1.onmouseover = function() {
+            clearTimeout(timer);
+            odiv2.style.display = 'block';
+        };
+        odiv1.onmouseout = function() {
+            timer = setTimeout(function(){
+                odiv2.style.display = 'none';
+            },300);
+        };
+        odiv2.onmouseover = function() {
+            clearTimeout(timer);
+            odiv2.style.display = 'block';
+        };
+        odiv2.onmouseout = function() {
+            timer = setTimeout(function(){
+                odiv2.style.display = 'none';
+            },300);
+        };
+
+    };
+</script>
+</body>
+</html>

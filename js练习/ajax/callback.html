@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var xhr;
+    function loadXML(url, func) {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = func;
+    }
+    function myFunction(){
+        loadXML("./1.txt",function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+            }
+        });
+    }
+</script>
+<input type="button" onclick="myFunction();" value="点我点我">
+<div id="myDiv" style="width: 500px; height: 200px; border: 1px solid #ccc; overflow: scroll;"></div>
+</body>
+</html>
